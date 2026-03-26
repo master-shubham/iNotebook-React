@@ -22,67 +22,80 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## iNotebook App Projects
 
-### `Page 1: Signup`
-![Create account](iNotebookSignup.png)
+iNotebook is a modern, cloud-based note-taking web application that allows users to securely create, edit, and manage their personal notes anytime, anywhere. It is designed for simplicity, speed, and security, using the MERN stack (MongoDB, Express.js, React.js, Node.js).
+
+---
+
+## Table of Contents
+
+- [Features](#features)  
+- [Demo](#demo)  
+- [Technology Stack](#technology-stack)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Screenshots](#screenshots)  
+- [Author](#author)  
+
+---
+
+## Features
+
+- 🔒 **Secure Notes**: User authentication and authorization using JWT.  
+- 📝 **Create & Edit Notes**: Easily add, edit, and delete notes.  
+- ☁️ **Cloud Access**: Access your notes from anywhere via the cloud.  
+- 🚀 **Fast & Responsive UI**: Built with React for smooth user experience.  
+- 📦 **Safe Storage**: Notes stored securely in MongoDB.  
+
+---
+
+## Demo
+
+You can run the project locally to explore all features.
+
+---
+
+## Technology Stack
+
+- **Frontend**: React.js  
+- **Backend**: Node.js + Express.js  
+- **Database**: MongoDB  
+- **Authentication**: JWT  
+
+---
+
+## Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd inotebook
+
+
+## Usage
+
+_ **Signup**: Create an account using your email and password.
+_ **Login**: Access your personal dashboard.
+_ **Add Notes**: Enter title, description, and tag to add a new note.
+_ **Edit/Delete** Notes: Update or remove existing notes easily.
+_ **About Page**: Learn about iNotebook and the technology stack.
 
 
 
-### `Page 2: Login`
-![Login after access own notes](iNotebookLogin.png)
+## Screenshots
 
-### `Page 3: Home`
-![Create own notes and you can add,update and delete note](iNotebookHome.png)
+### `Page 1: Login`
+![Login after access own notes](iNotebook_login.png)
+
+### `Page 2: Notes`
+![Create own notes and you can add,update and delete note](iNotebook_addNote.png)
+
+### `Page 3: Service`
+![Create own notes and you can add,update and delete note](iNotebook_Home.png)
+
+### `Page 4: About`
+![Create own notes and you can add,update and delete note](iNotebook_about.png)
 
 
+## Author
 
-
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Made with ❤️ by Shubham
