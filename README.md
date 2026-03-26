@@ -73,11 +73,11 @@ You can run the project locally to explore all features.
 
 ## Usage
 
-_ **Signup**: Create an account using your email and password.
-_ **Login**: Access your personal dashboard.
-_ **Add Notes**: Enter title, description, and tag to add a new note.
-_ **Edit/Delete** Notes: Update or remove existing notes easily.
-_ **About Page**: Learn about iNotebook and the technology stack.
+- **Signup**: Create an account using your email and password.
+- **Login**: Access your personal dashboard.
+- **Add Notes**: Enter title, description, and tag to add a new note.
+- **Edit/Delete** Notes: Update or remove existing notes easily.
+- **About Page**: Learn about iNotebook and the technology stack.
 
 
 
