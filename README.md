@@ -26,6 +26,14 @@ iNotebook is a modern, cloud-based note-taking web application that allows users
 
 ---
 
+## 🔗 Live Demo
+https://i-notebook-react-mwz66mk7s-master-shubhams-projects.vercel.app/
+
+## 📦 Backend API
+https://inotebook-backend-q2gt.onrender.com
+
+
+
 ## Table of Contents
 
 - [Features](#features)  
