@@ -13,7 +13,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "i-notebook-react-osa1dqttn-master-shubhams-projects.vercel.app", // tumhara exact Vercel URL daalo
+      "https://i-notebook-react-weld.vercel.app",
+      "i-notebook-react-cwbjwhr7z-master-shubhams-projects.vercel.app",
     ],
     credentials: true,
   }),
