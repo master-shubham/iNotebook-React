@@ -11,15 +11,21 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://i-notebook-react-weld.vercel.app",
-      "i-notebook-react-cwbjwhr7z-master-shubhams-projects.vercel.app",
-    ],
+    origin: function (origin, callback) {
+      // Allow all vercel URLs + localhost
+      if (
+        !origin ||
+        origin.includes("vercel.app") ||
+        origin.includes("localhost")
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
-
 app.use(express.json());
 
 app.use("/api/auth", require("./routes/auth"));
