@@ -4,7 +4,7 @@ import Notes from "../components/Notes";
 export const Home = (props) => {
 
   return (
-    <div  >
+    <div>
       <AddNote  />
       <Notes />
     </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Signup = (props) => {
+const Signup = () => {
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -15,6 +15,11 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (credentials.password !== credentials.cpassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
     const { name, email, password } = credentials;
 
     const response = await fetch("http://localhost:5000/api/auth/createuser", {
@@ -26,7 +31,6 @@ const Signup = (props) => {
     });
 
     const json = await response.json();
-    console.log(json);
 
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
@@ -42,74 +46,85 @@ const Signup = (props) => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-6 px-4">
-      <h2 className="text-2xl font-semibold mb-4">
-        Create a account to use to iNotebook
-      </h2>
+    <div className="min-h-screen flex items-center justify-center px-4">
+      {/* Card */}
+      <div className="w-full max-w-md bg-[#1a1a2e] border border-[#2d2d4e] rounded-2xl p-6 shadow-lg">
+        {/* Heading */}
+        <h2 className="text-white text-xl font-semibold text-center mb-2">
+          Create Account
+        </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-1">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            onChange={onChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+        <p className="text-gray-400 text-sm text-center mb-6">
+          Join i<span className="text-purple-500">N</span>otebook today
+        </p>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-1">
-            Email address
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            onChange={onChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <div className="text-sm text-gray-500 mt-1">
-            We'll never share your email with anyone else.
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Name */}
+          <div>
+            <label className="block text-xs text-gray-400 mb-1 uppercase">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              onChange={onChange}
+              placeholder="Enter your name"
+              className="w-full bg-[#0f0f13] border border-[#2d2d4e] rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-purple-500"
+            />
           </div>
-        </div>
 
-        <div>
-          <label htmlFor="password" className="block text-sm font-medium mb-1">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            onChange={onChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+          {/* Email */}
+          <div>
+            <label className="block text-xs text-gray-400 mb-1 uppercase">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              onChange={onChange}
+              placeholder="Enter your email"
+              className="w-full bg-[#0f0f13] border border-[#2d2d4e] rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-purple-500"
+            />
+          </div>
 
-        <div>
-          <label htmlFor="cpassword" className="block text-sm font-medium mb-1">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            id="cpassword"
-            name="password"
-            onChange={onChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+          {/* Password */}
+          <div>
+            <label className="block text-xs text-gray-400 mb-1 uppercase">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              onChange={onChange}
+              placeholder="Enter password"
+              className="w-full bg-[#0f0f13] border border-[#2d2d4e] rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-purple-500"
+            />
+          </div>
 
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-        >
-          Submit
-        </button>
-      </form>
+          {/* Confirm Password */}
+          <div>
+            <label className="block text-xs text-gray-400 mb-1 uppercase">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              name="cpassword" // ✅ FIXED
+              onChange={onChange}
+              placeholder="Confirm password"
+              className="w-full bg-[#0f0f13] border border-[#2d2d4e] rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-purple-500"
+            />
+          </div>
+
+          {/* Button */}
+          <button
+            type="submit"
+            className="w-full bg-linear-to-br from-purple-600 to-purple-500 text-white py-2 rounded-lg text-sm font-medium hover:opacity-90 transition"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

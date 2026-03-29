@@ -9,28 +9,42 @@ const NoteItem = (props) => {
   const { note, updateNote } = props;
 
   return (
-    <div className="md:w-2/4 px-2">
-      <div className="bg-white my-2 shadow-md rounded-xl">
-        <div className="p-4">
-          <h5 className="text-lg font-semibold mb-2">{note.title}</h5>
-          <p className="text-gray-600 mb-3">{note.description}</p>
+    <div className="w-full md:w-3/3 p-2">
+      <div className="bg-[#1a1a2e] border border-[#2d2d4e] rounded-xl p-4 relative hover:border-purple-500 transition">
+        {/* Tag */}
+        {note.tag && (
+          <span className="inline-block text-xs bg-[#2d2d4e] text-purple-400 px-3 py-1 rounded-full mb-2">
+            {note.tag}
+          </span>
+        )}
 
-          <div className="flex">
-            <FaTrash
-              className="fa-solid fa-trash mx-2 cursor-pointer text-red-500 hover:text-red-700"
-              onClick={() => {
-                deleteNote(note._id);
-                toast.success("Deleted Successfully");
-              }}
-            />
+        {/* Title */}
+        <h5 className="text-white text-sm font-semibold mb-1">{note.title}</h5>
 
-            <FaEdit
-              className="fa-solid fa-pen-to-square mx-2 cursor-pointer text-blue-500 hover:text-blue-700"
-              onClick={() => {
-                updateNote(note);
-              }}
-            />
-          </div>
+        {/* Description */}
+        <p className="text-gray-400 text-xs mb-4 leading-relaxed">
+          {note.description}
+        </p>
+
+        {/* Actions */}
+        <div className="flex gap-2">
+          {/* Edit */}
+          <button
+            onClick={() => updateNote(note)}
+            className="flex-1 flex items-center justify-center gap-1 text-xs text-gray-400 border border-[#2d2d4e] rounded-lg py-1.5 hover:bg-[#2d2d4e] hover:text-white transition"
+          >
+            <FaEdit />
+            Edit
+          </button>
+
+          {/* Delete */}
+          <button
+            onClick={() =>deleteNote(note._id)}
+            className="flex-1 flex items-center justify-center gap-1 text-xs text-red-400 border border-[#2d1a1a] rounded-lg py-1.5 hover:bg-[#2d1a1a] transition"
+          >
+            <FaTrash />
+            Delete
+          </button>
         </div>
       </div>
     </div>

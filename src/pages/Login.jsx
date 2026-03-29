@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Login = (props) => {
+const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // API call
+
     const response = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
@@ -19,10 +19,10 @@ const Login = (props) => {
         password: credentials.password,
       }),
     });
+
     const json = await response.json();
 
     if (json.success) {
-      // redirect
       localStorage.setItem("token", json.authtoken);
       navigate("/home");
       toast.success("Logged in Successfully");
@@ -36,59 +36,61 @@ const Login = (props) => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-6 px-4">
-      <h2 className="text-2xl font-semibold mb-4">
-        Login to continue to iNotebook
-      </h2>
+    <div className="min-h-screen flex items-center justify-center px-4">
+      {/* Card */}
+      <div className="w-full max-w-md bg-[#1a1a2e] border border-[#2d2d4e] rounded-2xl p-6 shadow-lg">
+        {/* Heading */}
+        <h2 className="text-white text-xl font-semibold text-center mb-2">
+          Login to i<span className="text-purple-500">N</span>otebook
+        </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label
-            htmlFor="exampleInputEmail1"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Email address
-          </label>
-          <input
-            type="email"
-            id="exampleInputEmail1"
-            value={credentials.email}
-            name="email"
-            onChange={onChange}
-            autoComplete="username"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            aria-describedby="emailHelp"
-          />
-          <div id="emailHelp" className="text-sm text-gray-500 mt-1">
-            We'll never share your email with anyone else.
+        <p className="text-gray-400 text-sm text-center mb-6">
+          Access your notes securely
+        </p>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Email */}
+          <div>
+            <label className="block text-xs text-gray-400 mb-1 uppercase">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={credentials.email}
+              onChange={onChange}
+              autoComplete="username"
+              placeholder="Enter your email"
+              className="w-full bg-[#0f0f13] border border-[#2d2d4e] rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-purple-500"
+            />
           </div>
-        </div>
 
-        <div>
-          <label
-            htmlFor="exampleInputPassword1"
-            className="block text-sm font-medium text-gray-700 mb-1"
+          {/* Password */}
+          <div>
+            <label className="block text-xs text-gray-400 mb-1 uppercase">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={credentials.password}
+              onChange={onChange}
+              autoComplete="current-password"
+              placeholder="Enter your password"
+              className="w-full bg-[#0f0f13] border border-[#2d2d4e] rounded-lg px-3 py-2 text-white text-sm outline-none focus:border-purple-500"
+            />
+          </div>
+
+          {/* Button */}
+          <button
+            type="submit"
+            className="w-full bg-linear-to-br from-purple-600 to-purple-500 text-white py-2 rounded-lg text-sm font-medium hover:opacity-90 transition"
           >
-            Password
-          </label>
-          <input
-            type="password"
-            id="exampleInputPassword1"
-            name="password"
-            value={credentials.password}
-            onChange={onChange}
-            autoComplete="current-password"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
-        >
-          Submit
-        </button>
-      </form>
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

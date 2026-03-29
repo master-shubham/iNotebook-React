@@ -1,69 +1,83 @@
 const About = () => {
   return (
-    <div className="max-w-4xl mx-auto my-10 px-4">
-      <div className="bg-white shadow-xl rounded-2xl border border-gray-200">
-        <div className="p-8 md:p-12">
-          <h2 className="text-center mb-4 text-3xl font-bold text-blue-600">
-            About iNotebook
+    <div className="max-w-5xl mx-auto px-4 py-10">
+      {/* Card */}
+      <div className="border border-[#2d2d4e] rounded-2xl shadow-lg bg-white text-black dark:bg-[#1a1a2e] dark:text-white transition">
+        <div className="p-6 md:p-10">
+          {/* Heading */}
+          <h2 className="text-center text-2xl md:text-3xl font-bold mb-3">
+            About i<span className="text-purple-500">N</span>otebook
           </h2>
 
-          <p className="text-center text-gray-500 text-lg mb-4">
+          <p className="text-center text-gray-400 text-sm md:text-base mb-6">
             Your secure and smart cloud-based notebook
           </p>
 
-          <hr className="border-gray-300" />
+          <div className="border-t border-[#2d2d4e] mb-6"></div>
 
-          <p className="mt-4 text-gray-700">
-            <strong>iNotebook</strong> is a modern web application designed to
-            help users securely create, store, and manage their personal notes
-            anytime, anywhere. It is built using the
-            <strong> MERN stack</strong> to ensure high performance,
-            scalability, and data security.
+          {/* Description */}
+          <p className=" text-sm md:text-base leading-relaxed">
+            <strong>iNotebook</strong> is a modern web
+            application designed to help users securely create, store, and
+            manage their personal notes anytime, anywhere. It is built using the
+            <strong> MERN stack</strong> to ensure high
+            performance, scalability, and data security.
           </p>
 
-          <h5 className="mt-6 font-bold text-lg">✨ Key Features</h5>
-          <ul className="mb-4 divide-y divide-gray-200 border rounded-lg overflow-hidden">
-            <li className="p-3">🔐 Secure user authentication using JWT</li>
-            <li className="p-3">📝 Create, edit, and delete notes easily</li>
-            <li className="p-3">☁️ Cloud-based access from anywhere</li>
-            <li className="p-3">🚀 Fast and responsive UI with React</li>
-            <li className="p-3">📦 Safe data storage using MongoDB</li>
-          </ul>
+          {/* Features */}
+          <h5 className="mt-6 font-semibold">✨ Key Features</h5>
 
-          <h5 className="font-bold text-lg">🛠 Technology Stack</h5>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center mt-3">
-            <div>
-              <span className="inline-block bg-blue-600 text-white px-3 py-1 rounded-lg">
-                React
-              </span>
-            </div>
-            <div>
-              <span className="inline-block bg-green-600 text-white px-3 py-1 rounded-lg">
-                Node.js
-              </span>
-            </div>
-            <div>
-              <span className="inline-block bg-gray-800 text-white px-3 py-1 rounded-lg">
-                Express
-              </span>
-            </div>
-            <div>
-              <span className="inline-block bg-yellow-400 text-black px-3 py-1 rounded-lg">
-                MongoDB
-              </span>
-            </div>
+          <div className="mt-3 border border-[#2d2d4e] rounded-xl overflow-hidden">
+            {[
+              "🔐 Secure user authentication using JWT",
+              "📝 Create, edit, and delete notes easily",
+              "☁️ Cloud-based access from anywhere",
+              "🚀 Fast and responsive UI with React",
+              "📦 Safe data storage using MongoDB",
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="px-4 py-3 text-sm border-b border-[#2d2d4e] last:border-none"
+              >
+                {item}
+              </div>
+            ))}
           </div>
 
-          <h5 className="mt-6 font-bold text-lg">🎯 Purpose</h5>
-          <p className="text-gray-700">
+          {/* Tech Stack */}
+          <h5 className="mt-6 font-semibold">🛠 Technology Stack</h5>
+
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+            <span className="bg-purple-600 text-white text-sm py-2 rounded-lg text-center">
+              React
+            </span>
+
+            <span className="bg-green-600 text-white text-sm py-2 rounded-lg text-center">
+              Node.js
+            </span>
+
+            <span className="bg-gray-700 text-white text-sm py-2 rounded-lg text-center">
+              Express
+            </span>
+
+            <span className="bg-yellow-400 text-black text-sm py-2 rounded-lg text-center">
+              MongoDB
+            </span>
+          </div>
+
+          {/* Purpose */}
+          <h5 className="mt-6 font-semibold">🎯 Purpose</h5>
+
+          <p className="text-gray-300 text-sm md:text-base leading-relaxed mt-2">
             iNotebook is developed as a learning-based full-stack project to
             understand real-world application development, including
             authentication, REST APIs, database integration, and frontend
             design.
           </p>
 
-          <div className="text-center mt-6">
-            <span className="text-gray-500">
+          {/* Footer */}
+          <div className="text-center mt-8">
+            <span className="text-gray-500 text-sm">
               Made with ❤️ by <strong>Shubham</strong>
             </span>
           </div>

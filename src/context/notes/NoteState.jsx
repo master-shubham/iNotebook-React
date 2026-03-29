@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import NoteContext from './noteContext'
+import Swal from 'sweetalert2'
 
 
 const NoteState = (props) => {
@@ -42,22 +43,35 @@ const NoteState = (props) => {
     }
 
     // Delete a note
-    const deleteNote = async (id) => {
-        //API call
-        // API call 
-        const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "auth-token": localStorage.getItem('token')
-            },
 
-        });
-    
-        //delete a existing id
-        const newID = notes.filter((note) => { return note._id !== id });
-        setNotes(newID);
-    }
+ const deleteNote = async (id) => {
+   const result = await Swal.fire({
+     title: "Are you sure?",
+     text: "You won't be able to recover this note!",
+     icon: "warning",
+     showCancelButton: true,
+     confirmButtonColor: "#d33",
+     cancelButtonColor: "#3085d6",
+     confirmButtonText: "Yes, delete it!",
+   });
+
+   // ✅ If user confirms
+   if (result.isConfirmed) {
+     await fetch(`${host}/api/notes/deletenote/${id}`, {
+       method: "DELETE",
+       headers: {
+         "Content-Type": "application/json",
+         "auth-token": localStorage.getItem("token"),
+       },
+     });
+
+     const newID = notes.filter((note) => note._id !== id);
+     setNotes(newID);
+
+     // success popup
+     Swal.fire("Deleted!", "Your note has been deleted.", "success");
+   }
+ };
 
     // Edit a note 
     const editNote = async (id, title, description, tag) => {
