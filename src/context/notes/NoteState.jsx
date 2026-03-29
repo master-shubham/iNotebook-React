@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 
 
 const NoteState = (props) => {
-    const host = "http://localhost:5000"
+    const host = import.meta.env.VITE_API_URL;
     const notesInitial = []
 
     const [notes, setNotes] = useState(notesInitial)

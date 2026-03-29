@@ -22,13 +22,16 @@ const Signup = () => {
 
     const { name, email, password } = credentials;
 
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/auth/createuser`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
       },
-      body: JSON.stringify({ name, email, password }),
-    });
+    );
 
     const json = await response.json();
 
