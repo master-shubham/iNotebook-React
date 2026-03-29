@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { ConnectionStates } = require('mongoose');
-const JWT_SECRET = 'shubhamisgoodb$oy';
-
+const JWT_SECRET = process.env.JWT_SECRET
 
 const fetchuser = (req, res, next) => {
     // get the user from the token and add id to req object.
